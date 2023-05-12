@@ -31,7 +31,7 @@ function incrementIncrease() {
 incrementIncreaseButton.addEventListener('click', incrementIncrease);
 
 
-// Function to save game via JSON string
+// Function to save game via JSON string and local storage
 function saveGame() {
     const gameData = {
         count: count,
@@ -44,3 +44,16 @@ function saveGame() {
     console.log('Game Saved!');
 }
 
+// Function to load game from localstorage
+function loadGame() {
+    const gameDataString = localStorage.getItem('gameData');
+
+    if (gameDataString) {
+        const gameData = JSON.parse(gameDataString);
+
+        count = gameData.count;
+        incrementValue = gameData.incrementValue;
+
+        console.log('Game loaded!')
+    }
+}
