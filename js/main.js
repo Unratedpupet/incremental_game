@@ -29,3 +29,18 @@ function incrementIncrease() {
 
 // Add a click event listener to the increaseIncrement button
 incrementIncreaseButton.addEventListener('click', incrementIncrease);
+
+
+// Function to save game via JSON string
+function saveGame() {
+    const gameData = {
+        count: count,
+        incrementValue: incrementValue
+    };
+
+    const gameDataString = JSON.stringify(gameData);
+    localStorage.setItem('gameData', gameDataString);
+
+    console.log('Game Saved!');
+}
+
